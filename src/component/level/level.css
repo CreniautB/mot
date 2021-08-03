@@ -1,0 +1,34 @@
+.inputContainer input {
+  height: 25px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+  max-width: 100px;
+  letter-spacing: 2px;
+  margin-bottom: 1em;
+}
+
+.arrayContainer {
+  margin-top: 2em;
+}
+
+.arrayContainer .colonne {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.arrayContainer .square {
+  width: 30px;
+  height: 30px;
+  border: solid 1px black;
+}
+
+.code {
+  letter-spacing: 1.5px;
+  color: rgba(255, 127, 39, 0.95);
+}
+/*# sourceMappingURL=level.css.map */
