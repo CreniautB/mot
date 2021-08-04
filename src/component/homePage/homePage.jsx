@@ -27,13 +27,13 @@ function HomePage() {
       <div className="homePage">
         
            <h1 className='button titleGame ' >
-               Jeux du Code Secret<br/>
+               Jeux du Mot Secret<br/>
            </h1>
 
            <h2 className="regle">
                 Déchiffrez le code secret
                 <br/> Si la lettre est dans la bonne position la case devient <strong className="vert">Verte</strong><br/>
-                Si la lettre est présent dans le code la case devient <strong>Blanche</strong><br/>
+                Si la lettre est présent dans le mot la case devient <strong>Blanche</strong><br/>
                 Sinon elle devient <strong className="orange" >Orange</strong>
             </h2>
 
