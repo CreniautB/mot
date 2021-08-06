@@ -1,25 +1,23 @@
 import React, {useState} from 'react'
+import ChooseList from '../chooseList/chooseList'
 import Level from '../level/level'
 import './homePage.css'
-import generate from './generate'
+
 
 
 function HomePage() {
 
-    const [level, setLevel] = useState(false)
-    
-    function selectLevel(id) {
-        setLevel(id)
+    const [number, setNumber] = useState(null)
+    const list =[]
+
+    function selectList(id) {
+        setNumber(id)
     }
 
+    if(number) {
 
-    if(level) {
-        
-        const guessString = generate(level)
-        let guess =  guessString
-        
         return (
-            <Level  level={level} guess={guess} />
+            <ChooseList  number={number} list={list}/>
         ) 
     }
 
@@ -38,9 +36,9 @@ function HomePage() {
             </h2>
 
            <div>
-                <button className="button" key={2} onClick={(e) => selectLevel(5,e)}>Mot à 5 lettres</button>
-                <button className="button" key={3} onClick={(e) => selectLevel(6,e)}>Mot à 6 lettres</button>
-                <button className="button" key={4} onClick={(e) => selectLevel(7,e)}>Mot à 7 lettres</button>
+                <button className="button" key={2} onClick={(e) => selectList(5,e)}>Mot à 5 lettres</button>
+                <button className="button" key={3} onClick={(e) => selectList(6,e)}>Mot à 6 lettres</button>
+                <button className="button" key={4} onClick={(e) => selectList(7,e)}>Mot à 7 lettres</button>
    
             </div>
       </div>

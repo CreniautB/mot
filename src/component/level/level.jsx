@@ -1,26 +1,25 @@
-import React, { useState, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import './level.css'
 import _ from 'lodash'
 import Square from '../square/square'
 import getAllIndexes from './getAllIndexes'
 
-function Level ({level, guess }) {
+function Level ({number, setWin, guess,tour, setTour, win }) {
    
     const [array, setArray] = useState([])
-    const [tour, setTour] = useState(1)    
-    const [win, setWin] = useState(false)
+
     const input = useRef(null);
-    
+        
     function handleKeyPress(e) {
         if(e.key === 'Enter'){
             handleClick(e)
           }
     }
 
-    
+
     function handleClick(e){
 
-        if (input.current.value !== '' && input.current.value.length === level){
+        if (input.current.value !== '' && input.current.value.length === number){
             let valueInput = input.current.value.toUpperCase()
             let currentArray = valueInput.split('')
 
@@ -46,34 +45,19 @@ function Level ({level, guess }) {
                 }
             }
              
-            setArray(oldArray => [...oldArray, newArray]);
-            setTour(tour + 1)
+            if(!win){
+                setArray(oldArray => [...oldArray, newArray]);
+                setTour(tour + 1)
+            }
         }
     }
 
-    function getNote(tour) {
-        if(tour === 1 ){return 20}if(tour === 2 ) {return 18}if(tour === 3 ) {return 16}if(tour === 4 ) {return 14}if(tour === 5 ) {return 12}if(tour === 6 ) {return 10}if(tour === 7 ) {return 8}if(tour === 8 ) {return 6}if(tour === 9 ) {return 4}if(tour ===10){return 2}
-    }
 
-    if(win)
-    {
-        let note = getNote(tour)
-        return (
-            <h1>Félicitation vous avez réussit à devniez le mot !<br/> Vous avez obtenu {note} / 20 </h1>
-        )
-    }
-
-    if(tour === 11) {
-        return (
-            <h1>Vous n'avez pas réussi à deviner le mot<br/>
-            Qui était : <strong className="code">{guess}</strong></h1>
-        )
-    }
 
     return(
         <div className='level'>
 
-            <h1>Devnier le mot à {level} lettres</h1>
+            <h1>Devnier le mot de {number} lettres</h1>
 
             <div className="tourCount" >Essai {tour} / 10</div>
 
