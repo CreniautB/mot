@@ -28,7 +28,7 @@ function RoundLevel({number, list}) {
 
         return (
             <div>
-                <h1>Félicitation vous avez réussit à devniez le mot !<br/> Vous avez obtenu {note} / 20 </h1>
+                <h1>Félicitations vous avez réussi à deviner le mot !<br/> Vous avez obtenu {note} / 20 </h1>
                 <button className="button" onClick={() => nextRound()} > Cliquer ici pour le tour suivant</button>
             </div>
         )
