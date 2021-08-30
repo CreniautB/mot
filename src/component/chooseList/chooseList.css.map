@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,UAAU,CACV;EACI,OAAO,EAAE,IAAI;CAChB;;AACD,AAAA,MAAM,CAAA;EACF,UAAU,EAAE,GAAG,CAAA,UAAU;CAC5B",
+    "sources": [
+        "chooseList.scss"
+    ],
+    "names": [],
+    "file": "chooseList.css"
+}

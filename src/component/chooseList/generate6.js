@@ -2032,8 +2032,26 @@ let list3 =[
     ["HORDES"]
   ]
 
+  function shuffle(array) {
+    var currentIndex = array.length,  randomIndex;
+  
+    // While there remain elements to shuffle...
+    while (currentIndex !== 0) {
+  
+      // Pick a remaining element...
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+  
+    return array;
+  }
+
   function sendList(level) {
-    if (level ===1) {return list1}
+    if (level ===1) {return shuffle(list1)}
     if (level ===2) {return list2}
     if (level ===3) {return list3}
     if (level ===4) {return list4}

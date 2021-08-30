@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useRef } from 'react'
 import generate5 from './generate5'
 import generate6 from './generate6'
 import generate7 from './generate7'
 import RoundLevel from '../roundLevel/roundLevel'
+import Timer from 'react-compound-timer'
+import './chooseList.css'
 
 function ChooseList({number}) {
 
-
     const [go, setGo] = useState(false)
     const [list, setList] = useState([])
+    const stopClock = useRef(null)
+    const startClock = useRef(null)
+    const resetClock = useRef(null)
     
     function selectLevel(number, idList) {
 
@@ -34,11 +38,40 @@ function ChooseList({number}) {
     }
 
     if(go){
-        return ( <RoundLevel list={list} number={number}/> )
+        return (
+            <>
+            
+            <div className="button timer">
+
+                <span>Votre Chrono</span>
+
+                <Timer
+                    initialTime={0}
+                >
+                    {({stop, reset, start }) => (
+                        <React.Fragment>
+                            <div>
+                                <Timer.Minutes /> : <Timer.Seconds /> 
+                            </div>
+                            <div>
+                                <button className="btnHidden" ref={stopClock} onClick={stop}>Stop</button>
+                                <button className="btnHidden" ref={resetClock} onClick={reset}>Stop</button>
+                                <button className="btnHidden" ref={startClock} onClick={start}>Stop</button>
+                            </div>
+                        </React.Fragment>
+                    )}
+                </Timer>
+                </div> 
+
+            <RoundLevel list={list} number={number} stopClock={stopClock} startClock={startClock} resetClock={resetClock} /> 
+        </>
+        )
     }
 
     return (
         <div>
+            <br/>
+            <h1>Choisir une liste</h1>
             <button className="button" key={1} onClick={(e) => selectLevel(number, 1,e)}>Liste 1</button>
             <button className="button" key={2} onClick={(e) => selectLevel(number, 2,e)}>Liste 2</button>
             <button className="button" key={3} onClick={(e) => selectLevel(number, 3,e)}>Liste 3</button>

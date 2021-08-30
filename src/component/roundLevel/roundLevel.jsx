@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 import Level from '../level/level'
 
-function RoundLevel({number, list}) {
+function RoundLevel({number, list, stopClock, startClock, resetClock}) {
     
 
     const [round, setRound] = useState(0)    
@@ -16,6 +16,8 @@ function RoundLevel({number, list}) {
         setRound( round + 1)
         setWin(false)
         setTour(0)
+        resetClock.current.click()
+        startClock.current.click()
     }
 
 
@@ -26,6 +28,8 @@ function RoundLevel({number, list}) {
     if(win){
         let note = getNote(tour)
 
+        stopClock.current.click()
+
         return (
             <div>
                 <h1>Félicitations vous avez réussi à deviner le mot !<br/> Vous avez obtenu {note} / 20 </h1>
@@ -35,6 +39,7 @@ function RoundLevel({number, list}) {
     }
 
     if(tour === 10) {
+        stopClock.current.click()
         return (
             <div>
                 <h1>Vous n'avez pas réussi à deviner le mot<br/>

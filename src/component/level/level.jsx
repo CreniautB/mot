@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef } from 'react'
 import './level.css'
 import _ from 'lodash'
 import Square from '../square/square'
@@ -15,7 +15,6 @@ function Level ({number, setWin, guess,tour, setTour, win }) {
             handleClick(e)
           }
     }
-
 
     function handleClick(e){
 

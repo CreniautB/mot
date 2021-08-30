@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import ChooseList from '../chooseList/chooseList'
-import Level from '../level/level'
 import './homePage.css'
 
 function HomePage() {
@@ -13,7 +12,6 @@ function HomePage() {
     }
 
     if(number) {
-
         return (
             <ChooseList  number={number} list={list}/>
         ) 
@@ -21,7 +19,7 @@ function HomePage() {
 
     return (
       <div className="homePage">
-        
+        <br/>
            <h1 className='button titleGame ' >
                Jeu du Mot Secret<br/>
            </h1>
