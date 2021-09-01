@@ -56,7 +56,7 @@ function Level ({number, setWin, guess,tour, setTour, win }) {
     return(
         <div className='level'>
 
-            <h1>Devnier le mot de {number} lettres</h1>
+            <h1>Devinez le mot de {number} lettres</h1>
 
             <div className="tourCount" >Essai {tour} / 10</div>
 
